@@ -1,4 +1,4 @@
-EXEC=led
+EXEC=blink
 DFU=dfu-programmer
 CC=avr-gcc
 CFLAGS=-mmcu=atmega32u4 -Os -Wall
