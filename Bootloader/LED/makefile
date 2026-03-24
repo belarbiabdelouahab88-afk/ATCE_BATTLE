@@ -18,4 +18,4 @@ clean:
 install: $(EXEC).hex
 	$(DFU) $(MCU) erase --force
 	$(DFU) $(MCU) flash $(EXEC).hex
-  $(DFU) $(MCU) rese
+	$(DFU) $(MCU) reset
