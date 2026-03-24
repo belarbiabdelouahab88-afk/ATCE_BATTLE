@@ -1,23 +1,22 @@
 EXEC=blink
-MCU=atmega32u4
 DFU=dfu-programmer
 CC=avr-gcc
-CFLAGS=-mmcu=$(MCU) -Os -Wall -I/home/user/uc/compilation/lufa/VirtualSerial_example/ -I/home/user/uc/compilation/lufa/VirtualSerial_lib/ \
-	-I/home/user/uc/compilation/lufa/lufa-LUFA-140928/ -DF_USB=16000000UL -DF_CPU=16000000UL -Os -std=gnu99
+CFLAGS=-mmcu=atmega32u4 -Os -Wall
+MCU=atmega32u4
 
+all:$(EXEC).hex
 
-all: $(EXEC).hex
+$(EXEC).hex: $(EXEC).out
+	avr-objcopy -Oihex $(EXEC).out $(EXEC).hex
 
-$(EXEC).hex: $(EXEC).o
-	$(CC) $(CFLAGS) -L/home/user/uc/compilation/lufa/VirtualSerial_lib/ -o $(EXEC).hex $(EXEC).o -L../lufa/VirtualSerial_lib/ -lVirtualSerial
-
-$(EXEC).o: $(EXEC).c
-	$(CC) $(CFLAGS) -c $(EXEC).c 
+$(EXEC).out: $(EXEC).c
+	$(CC) $(CFLAGS) -o $(EXEC).out $(EXEC).c
 
 clean:
-	rm *.o $(EXEC).hex
-	
+	rm $(EXEC).hex $(EXEC).out
+
 install: $(EXEC).hex
-	$(DFU) $(MCU) erase
+	$(DFU) $(MCU) erase 
 	$(DFU) $(MCU) flash $(EXEC).hex
 	$(DFU) $(MCU) reset
+ 
