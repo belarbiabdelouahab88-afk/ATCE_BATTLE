@@ -1,6 +1,6 @@
 MCU=atmega32u4
 DFU=dfu-programmer
-EXEC=ledD
+EXEC=fastpwm
 CC=avr-gcc
 CFLAGS=-mmcu=atmega32u4 -Os -Wall -I../compilation/lufa/lufa-LUFA-140928 -I../compilation/lufa/VirtualSerial_example -L../compilation/lufa/VirtualSerial_lib  -std=gnu99
 
