@@ -1,0 +1,53 @@
+close;clear
+f=fopen(’PIDnone_openloop_cmd200−400.dat’);
+d=fscanf(f,’%x’);
+Te=1.;%perioded’echantillonnage = 1s
+
+entree=d(1:3:end);entree=entree−mean(entree);
+sortie=d(3:3:end);sortie=sortie−mean(sortie);
+sortie=sortie(1:end−1);
+entree=entree(2:end);
+mydata=iddata(sortie,entree,Te); % vv pour octave, PAS matlab
+[arx111,x0]=arx(mydata,’na’,1,’nb’,1,’nk’,0); % Att. nk
+sysd=tf(arx111)
+[Y,T]=step(sysd,30);
+
+tau=0;%laplusgrandepenteesten0
+a=0.6/1; %pentedelareponseindicielle
+
+%Takahashi
+ki=0.27/(a*(tau+0.5*Te)^2)
+kp=0.9/(a*(tau+Te))−0.5*ki*Te
+
+corr=tf([kp+ki*Te −kp],[1 −1],Te) % PID
+%autresolution:moyennedesreponsesindicielles
+nombre=floor(length(entree)/60)−1;
+e=reshape(entree(29:nombre*60+28),60,nombre);
+s=reshape(sortie(30:nombre*60+29),60,nombre);
+
+holdon
+plot([−30:29],s); %plot([−30:29],e)
+xlabel('temps(s)');ylabel('variation_freq_%_65536(Hz)');grid
+
+figure;plot([−30:29],mean(s’)); %plot([−30:29],e)
+xlabel('temps(s)');ylabel('variation_freq_%_65536(Hz)');grid
+
+figure;plot(T,(Y/max(Y))*(max(max(s))−min(min(s)))+min(min(s)))
+xlim([030])
+xlabel('temps(s)');ylabel('variation_freq_%_65536(Hz)');grid
+
+%modeleparintercorrelation
+%Imp=impulse(mydatad,[−140],’PW’,[]) % pourMatlab
+y=xcorr(sortie, entree);
+Cuu=xcorr(entree, entree);
+N=20;%longueurdelareponseimpulsionelledesiree
+M=2000;%nbdelignesdelamatrice
+
+Y=y(length(sortie):length(sortie)+M);
+X=Cuu(length(sortie):length(sortie)+N)’;
+for i=1:1:M
+    X=[X;Cuu(length(sortie)−i:length(sortie)+N−i)’];
+end
+hopt=inv(X’*X)*X’*Y;
+%plot(hopt);xlabel(’temps (s)’);ylabel(’reponse indicielle (u.a.)’);
+plot(cumsum(hopt));xlabel('temps_(s)');ylabel('reponse_indicielle_(u.a.)');
