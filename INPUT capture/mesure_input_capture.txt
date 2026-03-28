@@ -1,3 +1,4 @@
+|colonne 1: nOverflow; |colonne 2: position du 1pps; |colonne 3; frequence
 244,8759,15999543
 244,8758,15999542
 244,8760,15999544
@@ -31,7 +32,6 @@
 244,8973,15999757
 244,8980,15999764
 244,8949,15999733
-|colonne 1: nOverflow; |colonne 2: position du 1pps; |colonne 3; frequence
 244,8922,15999706
 244,8896,15999680
 244,8871,15999655
