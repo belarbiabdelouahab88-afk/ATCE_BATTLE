@@ -34,20 +34,21 @@ ISR (TIMER1_CAPT_vect) {
 }
 
 void input_capture () {
-
-    DDRD &= ~(1 << PD4);
     // PD4 en entrée → reçoit le signal 1 PPS du GPS
-
-    TCCR1B |= (1 << ICES1);
+    DDRD &= ~(1 << PD4);
+    
     // sélection du front montant pour la capture
+    TCCR1B |= (1 << ICES1);
+    
 
-    TIMSK1 |= (1 << ICIE1) | (1 << TOIE1);
-    // active :
+    // activation de :
     // - interruption capture (ICIE1)
     // - interruption overflow (TOIE1)
-
+    TIMSK1 |= (1 << ICIE1) | (1 << TOIE1);
+    
+    // prescaler = 1
     TCCR1B |= (1 << CS10);
-    // prescaler = 1 
+     
 }
 
 int main(void) {
