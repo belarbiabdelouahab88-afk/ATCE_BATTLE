@@ -9,7 +9,7 @@
 extern USB_ClassInfo_CDC_Device_t VirtualSerial_CDC_Interface;
 extern FILE USBSerialStream;
 
-volatile signed int pps2 = 0;        // valeur actuelle du timer (ICR1)
+volatile signed int PPS2 = 0;        // valeur actuelle du timer (ICR1)
 volatile signed int overflow = 0;     // nombre d'overflow entre deux PPS
 volatile signed int nOVF = 0;         // copie pour calcul
 volatile signed long f = 0;           // fréquence calculée (nombre de ticks)
@@ -23,9 +23,9 @@ ISR (TIMER1_OVF_vect) {
 
 ISR (TIMER1_CAPT_vect) {
 
-    pps2 = ICR1;
+    PPS2 = ICR1;
     nOVF = overflow;
-    f = (((signed long)nOVF)*65536)+pps2;
+    f = (((signed long)nOVF)*65536)+PPS2;
     
     TCNT1 =0;
     overflow = 0;
@@ -59,7 +59,7 @@ int main(void) {
 
     while (1) {
         if (flag==1) {
-            fprintf(&USBSerialStream, "%u,%u,%ld\n\r", nOVF,pps2, f);                     
+            fprintf(&USBSerialStream, "%u,%u,%ld\n\r", nOVF,PPS2, f);                     
             flag = 0;
         }      
         CDC_Device_ReceiveByte(&VirtualSerial_CDC_Interface);
