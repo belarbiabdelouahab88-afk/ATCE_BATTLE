@@ -1,0 +1,63 @@
+Info: Processing symbol 'C1:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C2:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C3:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C4:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C5:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C6:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C7:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C8:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C9:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C10:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'C11:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'D1:Capacitor_SMD:C_0805_2012Metric'.
+Info: Processing symbol 'D2:LED_SMD:LED_0805_2012Metric'.
+Info: Processing symbol 'D3:LED_SMD:LED_0805_2012Metric'.
+Info: Processing symbol 'D4:LED_SMD:LED_0805_2012Metric'.
+Info: Processing symbol 'D5:LED_SMD:LED_0805_2012Metric'.
+Info: Processing symbol 'H1:MountingHole:MountingHole_2.5mm'.
+Info: Processing symbol 'H2:MountingHole:MountingHole_2.5mm'.
+Info: Processing symbol 'H3:MountingHole:MountingHole_2.5mm'.
+Info: Processing symbol 'H4:MountingHole:MountingHole_2.5mm'.
+Info: Processing symbol 'J1:Connector_USB:USB_Mini-B_Lumberg_2486_01_Horizontal'.
+Info: Processing symbol 'J2:Connector_Coaxial:SMA_Amphenol_901-143_Horizontal'.
+Info: Processing symbol 'J3:Connector_PinHeader_1.00mm:PinHeader_1x02_P1.00mm_Horizontal'.
+Info: Processing symbol 'L1:Inductor_SMD:L_0805_2012Metric'.
+Info: Processing symbol 'R1:Resistor_SMD:R_0805_2012Metric'.
+Info: Processing symbol 'R2:Resistor_SMD:R_0805_2012Metric'.
+Info: Processing symbol 'R3:Resistor_SMD:R_0805_2012Metric'.
+Info: Processing symbol 'R4:Resistor_SMD:R_0805_2012Metric'.
+Info: Processing symbol 'R5:Resistor_SMD:R_0805_2012Metric'.
+Info: Processing symbol 'SW1:Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2'.
+Info: Processing symbol 'SW3:Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2'.
+Info: Processing symbol 'TP1:TestPoint:TestPoint_Pad_1.0x1.0mm'.
+Info: Processing symbol 'TP2:TestPoint:TestPoint_Pad_1.0x1.0mm'.
+Info: Processing symbol 'TP3:TestPoint:TestPoint_Pad_1.0x1.0mm'.
+Info: Total warnings: 0, errors: 0.
+Info: Processing symbol 'U1:Package_QFP:TQFP-44_10x10mm_P0.8mm'.
+Info: Processing symbol 'U2:Package_TO_SOT_SMD:TSOT-23-5'.
+Info: Processing symbol 'Y1:Crystal:Crystal_SMD_HC49-SD_HandSoldering'.
+Updated TP2 sheetname to '/'.
+Updated TP2 sheetfile to 'ATCE.kicad_sch'.
+Updated TP2 footprint filters to 'Pin* Test*'.
+Removed TP2 'exclude from BOM' fabrication attribute.
+Connected TP2 pin 1 to Net-(U2-+).
+Added TP2 (footprint 'TestPoint:TestPoint_Pad_1.0x1.0mm').
+Added TP3 (footprint 'TestPoint:TestPoint_Pad_1.0x1.0mm').
+Changed REF** reference designator to TP2.
+Changed TP3 value from TestPoint_Pad_1.0x1.0mm to TestPoint.
+Updated TP3 symbol association from  to /187c50e6-ea0b-4c8a-bf67-23631c91052d.
+Updated TP3 fields.
+Updated TP3 sheetname to '/'.
+Updated TP3 sheetfile to 'ATCE.kicad_sch'.
+Updated TP3 footprint filters to 'Pin* Test*'.
+Changed REF** reference designator to TP3.
+Connected TP3 pin 1 to Net-(U1-PB5).
+Changed TP2 value from TestPoint_Pad_1.0x1.0mm to TestPoint.
+Updated TP2 symbol association from  to /06f01220-51ea-4944-8e5a-f59ea8672d4d.
+Updated TP2 fields.
+
+
+Removed TP3 'exclude from BOM' fabrication attribute.
+
+
+Info: Total warnings: 0, errors: 0.

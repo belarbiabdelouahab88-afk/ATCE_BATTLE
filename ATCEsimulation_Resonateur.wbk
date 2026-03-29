@@ -1,0 +1,52 @@
+{
+  "last_sch_text_sim_command": "",
+  "tabs": [
+    {
+      "analysis": "AC",
+      "commands": [
+        ".ac dec 10001 15.99Meg 16Meg",
+        ".kicad adjustpaths",
+        ".save all",
+        ".probe alli",
+        ".probe allp"
+      ],
+      "dottedSecondary": true,
+      "margins": {
+        "bottom": 45,
+        "left": 70,
+        "right": 70,
+        "top": 30
+      },
+      "measurements": [],
+      "showGrid": true,
+      "traces": [
+        {
+          "color": "rgb(255, 255, 51)",
+          "cursor1": {
+            "position": 15997371.941420386,
+            "x_format": "3~Hz",
+            "y_format": "3~dB"
+          },
+          "cursor2": {
+            "position": 16001048.186045201,
+            "x_format": "3~Hz",
+            "y_format": "3~dB"
+          },
+          "cursorD": {
+            "x_format": "3~Hz",
+            "y_format": "3~dB"
+          },
+          "signal": "I(C1) (gain)",
+          "trace_type": 522
+        },
+        {
+          "color": "rgb(255, 255, 51)",
+          "signal": "I(C1) (phase)",
+          "trace_type": 518
+        }
+      ]
+    }
+  ],
+  "user_defined_signals": [],
+  "version": 6
+}
