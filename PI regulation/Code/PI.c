@@ -88,7 +88,7 @@ void input_capture () {
  
  //saturation de la commande (anti-windup) pour eviter divergence 
 int sature_commande(long commande) { 
-    if (commande > 1023) return 1023; // Max
+    if (commande > 1023) return 1023; // Max positive ou negative
     if (commande < 0)    return 0;    // Min
     return (int)commande;  
 } 
