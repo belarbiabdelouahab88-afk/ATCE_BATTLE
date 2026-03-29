@@ -34,7 +34,7 @@ ISR (TIMER1_CAPT_vect) {
 }
 
 void input_capture () {
-    // PD4 en entrée → reçoit le signal 1 PPS du GPS
+    // PD4 en entrée pour reçevoir le signal 1 PPS.
     DDRD &= ~(1 << PD4);
     
     // sélection du front montant pour la capture
