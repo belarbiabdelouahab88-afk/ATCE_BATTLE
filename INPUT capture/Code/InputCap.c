@@ -23,13 +23,14 @@ ISR (TIMER1_OVF_vect) {
 
 ISR (TIMER1_CAPT_vect) {
 
-    PPS2 = ICR1;
+    PPS2 = ICR1; // Stocke la valeur du compteur au moment de la détection 
     nOVF = overflow;
-    f = (((signed long)nOVF)*65536)+PPS2;
-    
-    TCNT1 =0;
-    overflow = 0;
-    flag = 1;
+    f = (((signed long)nOVF)*65536)+PPS2; // Le calcul de la fréquence mesuré 
+
+    //Remise a 0 du compteur et de l'overflow pour préparer la prochaine mesure
+    TCNT1 =0; 
+    overflow = 0; 
+    flag = 1; // lève un drapeau pour indiquer qu'une mesure a été effectué 
 }
 
 void input_capture () {
@@ -59,7 +60,7 @@ int main(void) {
 
     while (1) {
         if (flag==1) {
-            fprintf(&USBSerialStream, "%u,%u,%ld\n\r", nOVF,PPS2, f);                     
+            fprintf(&USBSerialStream, "%u,%u,%ld\n\r", nOVF,PPS2, f);   // Communication via le port Série                  
             flag = 0;
         }      
         CDC_Device_ReceiveByte(&VirtualSerial_CDC_Interface);
